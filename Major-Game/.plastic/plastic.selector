@@ -1,0 +1,4 @@
+repository "Major-Game@vir297@cloud"
+  path "/"
+    br "/main"
+    co "/main"
