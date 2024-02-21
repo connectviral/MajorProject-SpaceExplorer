@@ -8,6 +8,9 @@ public class Player_Movement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer RL;
     private float dirx = 0f;
+    private float Movespeed = 7f;
+    private float Jumpforce = 18f;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -20,14 +23,19 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        float dirx = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(dirx * 7f, rb.velocity.y);
+        dirx = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(dirx * Movespeed, rb.velocity.y);
 
         if (Input.GetButtonDown("Jump"))
         {
-            rb.velocity = new Vector2(rb.velocity.x, 14f);
+            rb.velocity = new Vector2(rb.velocity.x, Jumpforce);
         }
 
+        updateplayerAnimation();
+    }
+
+    private void updateplayerAnimation()
+    {
         if (dirx > 0f)
         {
             anim.SetBool("running", true);
@@ -42,12 +50,6 @@ public class Player_Movement : MonoBehaviour
         {
             anim.SetBool("running", false);
         }
-
-        
-    }
-
-    private void updateplayerAnimation()
-    {
         
     }
 }
