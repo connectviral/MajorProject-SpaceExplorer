@@ -11,6 +11,8 @@ public class Player_Movement : MonoBehaviour
     private float Movespeed = 7f;
     private float Jumpforce = 18f;
 
+    private enum MovementState { idel,running, jumping, vanished }
+    private MovementState animmovement = MovementState.idel;
 
     // Start is called before the first frame update
     private void Start()
@@ -36,20 +38,30 @@ public class Player_Movement : MonoBehaviour
 
     private void updateplayerAnimation()
     {
+        MovementState animmovement;
         if (dirx > 0f)
         {
-            anim.SetBool("running", true);
+            animmovement = MovementState.running;
             RL.flipX = false;
         }
         else if (dirx < 0f)
         {
-            anim.SetBool("running", true);
+            animmovement = MovementState.running;
             RL.flipX = true;
         }
         else
         {
-            anim.SetBool("running", false);
+            animmovement = MovementState.idel;
         }
-        
+        if (rb.velocity.y > .1f)
+        {
+            animmovement = MovementState.jumping;
+        }
+        else if(rb.velocity.y < -0.1f)
+        {
+            animmovement = MovementState.vanished;
+        }
+
+        anim.SetInteger("animmovement", (int)animmovement);
     }
 }
