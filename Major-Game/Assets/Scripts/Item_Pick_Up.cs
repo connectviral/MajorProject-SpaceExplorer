@@ -13,7 +13,7 @@ public class Item_Pick_Up : MonoBehaviour
         {
             Destroy(collision.gameObject);
             bullets++; 
-            bulletText.text = ("Bullets: "+ bullets);
+            bulletText.text = ("Bullets: "+ bullets); 
         }
     }
 }
