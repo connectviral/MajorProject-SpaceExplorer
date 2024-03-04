@@ -31,7 +31,20 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+<<<<<<< HEAD
         time: 2.3333333
+=======
+        time: 3.5
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 5.35
+>>>>>>> parent of 4feaed84 (update level)
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -52,6 +65,7 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -4241635684806205602, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
+<<<<<<< HEAD
     - time: 0.33333334
       value: {fileID: 5641638529897069760, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
     - time: 0.73333335
@@ -63,13 +77,32 @@ AnimationClip:
     - time: 1.6666666
       value: {fileID: -6415160527855421042, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
     - time: 2
+=======
+    - time: 0.5
+      value: {fileID: 5641638529897069760, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
+    - time: 1.1
+      value: {fileID: 203894707262023572, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
+    - time: 1.5
+      value: {fileID: -2011412612036983366, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
+    - time: 2
+      value: {fileID: 2053719668135419293, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
+    - time: 2.5
+      value: {fileID: -6415160527855421042, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
+    - time: 3
+      value: {fileID: -8265649554163657122, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
+    - time: 5.35
+>>>>>>> parent of 4feaed84 (update level)
       value: {fileID: -8265649554163657122, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
+<<<<<<< HEAD
   m_SampleRate: 60
+=======
+  m_SampleRate: 40
+>>>>>>> parent of 4feaed84 (update level)
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -102,12 +135,20 @@ AnimationClip:
     - {fileID: 2053719668135419293, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
     - {fileID: -6415160527855421042, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
     - {fileID: -8265649554163657122, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
+<<<<<<< HEAD
+=======
+    - {fileID: -8265649554163657122, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
+>>>>>>> parent of 4feaed84 (update level)
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
+<<<<<<< HEAD
     m_StopTime: 4.5
+=======
+    m_StopTime: 5.375
+>>>>>>> parent of 4feaed84 (update level)
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -137,7 +178,20 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+<<<<<<< HEAD
         time: 2.3333333
+=======
+        time: 3.5
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 5.35
+>>>>>>> parent of 4feaed84 (update level)
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -157,7 +211,18 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+<<<<<<< HEAD
   - time: 4.5
+=======
+  - time: 4.15
+    functionName: 
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 5.325
+>>>>>>> parent of 4feaed84 (update level)
     functionName: RestartLevel
     data: 
     objectReferenceParameter: {fileID: 0}
