@@ -32,8 +32,11 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
 <<<<<<< HEAD
+<<<<<<< HEAD
         time: 2.3333333
 =======
+=======
+>>>>>>> parent of 4feaed84 (update level)
         time: 3.5
         value: 0
         inSlope: Infinity
@@ -44,6 +47,9 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 5.35
+<<<<<<< HEAD
+>>>>>>> parent of 4feaed84 (update level)
+=======
 >>>>>>> parent of 4feaed84 (update level)
         value: 0
         inSlope: Infinity
@@ -66,6 +72,7 @@ AnimationClip:
     - time: 0
       value: {fileID: -4241635684806205602, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - time: 0.33333334
       value: {fileID: 5641638529897069760, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
     - time: 0.73333335
@@ -78,6 +85,8 @@ AnimationClip:
       value: {fileID: -6415160527855421042, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
     - time: 2
 =======
+=======
+>>>>>>> parent of 4feaed84 (update level)
     - time: 0.5
       value: {fileID: 5641638529897069760, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
     - time: 1.1
@@ -91,6 +100,9 @@ AnimationClip:
     - time: 3
       value: {fileID: -8265649554163657122, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
     - time: 5.35
+<<<<<<< HEAD
+>>>>>>> parent of 4feaed84 (update level)
+=======
 >>>>>>> parent of 4feaed84 (update level)
       value: {fileID: -8265649554163657122, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
     attribute: m_Sprite
@@ -99,7 +111,11 @@ AnimationClip:
     script: {fileID: 0}
     flags: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_SampleRate: 60
+=======
+  m_SampleRate: 40
+>>>>>>> parent of 4feaed84 (update level)
 =======
   m_SampleRate: 40
 >>>>>>> parent of 4feaed84 (update level)
@@ -136,6 +152,10 @@ AnimationClip:
     - {fileID: -6415160527855421042, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
     - {fileID: -8265649554163657122, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    - {fileID: -8265649554163657122, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
+>>>>>>> parent of 4feaed84 (update level)
 =======
     - {fileID: -8265649554163657122, guid: 0c8811777369a4a468632de41fd2f62c, type: 3}
 >>>>>>> parent of 4feaed84 (update level)
@@ -145,7 +165,11 @@ AnimationClip:
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_StopTime: 4.5
+=======
+    m_StopTime: 5.375
+>>>>>>> parent of 4feaed84 (update level)
 =======
     m_StopTime: 5.375
 >>>>>>> parent of 4feaed84 (update level)
@@ -179,8 +203,11 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
 <<<<<<< HEAD
+<<<<<<< HEAD
         time: 2.3333333
 =======
+=======
+>>>>>>> parent of 4feaed84 (update level)
         time: 3.5
         value: 0
         inSlope: Infinity
@@ -191,6 +218,9 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 5.35
+<<<<<<< HEAD
+>>>>>>> parent of 4feaed84 (update level)
+=======
 >>>>>>> parent of 4feaed84 (update level)
         value: 0
         inSlope: Infinity
@@ -212,8 +242,11 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - time: 4.5
 =======
+=======
+>>>>>>> parent of 4feaed84 (update level)
   - time: 4.15
     functionName: 
     data: 
@@ -222,6 +255,9 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 5.325
+<<<<<<< HEAD
+>>>>>>> parent of 4feaed84 (update level)
+=======
 >>>>>>> parent of 4feaed84 (update level)
     functionName: RestartLevel
     data: 
