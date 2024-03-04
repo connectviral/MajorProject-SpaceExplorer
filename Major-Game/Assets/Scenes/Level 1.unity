@@ -127,6 +127,7 @@ PrefabInstance:
     serializedVersion: 3
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6771408372547006558, guid: 8a65b36a50cd3e9498b5351a95a8399d, type: 3}
@@ -144,22 +145,29 @@ PrefabInstance:
 =======
 >>>>>>> parent of 4feaed84 (update level)
     m_TransformParent: {fileID: 1940993265}
+=======
+    m_TransformParent: {fileID: 0}
+>>>>>>> parent of b18abf56 (Background_Video:LVL1)
     m_Modifications:
     - target: {fileID: 6771408372547006558, guid: 8a65b36a50cd3e9498b5351a95a8399d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.8072529
+      value: 5.5179667
       objectReference: {fileID: 0}
     - target: {fileID: 6771408372547006558, guid: 8a65b36a50cd3e9498b5351a95a8399d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.061722398
+      value: -0.5054573
       objectReference: {fileID: 0}
     - target: {fileID: 6771408372547006558, guid: 8a65b36a50cd3e9498b5351a95a8399d, type: 3}
       propertyPath: m_LocalPosition.z
+<<<<<<< HEAD
       value: 0.0036106743
 <<<<<<< HEAD
 >>>>>>> parent of 4feaed84 (update level)
 =======
 >>>>>>> parent of 4feaed84 (update level)
+=======
+      value: 0.0018053371
+>>>>>>> parent of b18abf56 (Background_Video:LVL1)
       objectReference: {fileID: 0}
     - target: {fileID: 6771408372547006558, guid: 8a65b36a50cd3e9498b5351a95a8399d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -259,6 +267,7 @@ PrefabInstance:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of 4feaed84 (update level)
@@ -327,6 +336,8 @@ PrefabInstance:
 >>>>>>> parent of 123cf78d (update)
 =======
 >>>>>>> parent of 123cf78d (update)
+=======
+>>>>>>> parent of b18abf56 (Background_Video:LVL1)
 --- !u!1 &331860706
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +569,7 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: -8.72, y: 1.98, z: -7.562179}
 =======
   m_LocalPosition: {x: -7.14, y: 1.98, z: -7.562179}
@@ -571,6 +583,9 @@ Transform:
 =======
   m_LocalPosition: {x: -8.72, y: 1.98, z: -7.562179}
 >>>>>>> parent of 123cf78d (update)
+=======
+  m_LocalPosition: {x: -8.72, y: 1.98, z: -7.562179}
+>>>>>>> parent of b18abf56 (Background_Video:LVL1)
   m_LocalScale: {x: -0.81753284, y: 0.9917611, z: 0.7562179}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -826,6 +841,7 @@ Tilemap:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 --- !u!1001 &725538652
 PrefabInstance:
@@ -892,6 +908,8 @@ PrefabInstance:
 >>>>>>> parent of 123cf78d (update)
 =======
 >>>>>>> parent of 123cf78d (update)
+=======
+>>>>>>> parent of b18abf56 (Background_Video:LVL1)
 --- !u!1001 &811853732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1130,6 +1148,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: df254403676944e786502cd04e5bc31e, type: 3}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of 4feaed84 (update level)
@@ -1197,6 +1216,8 @@ PrefabInstance:
 >>>>>>> parent of 4feaed84 (update level)
 =======
 >>>>>>> parent of 4feaed84 (update level)
+=======
+>>>>>>> parent of b18abf56 (Background_Video:LVL1)
 --- !u!1 &1492288808
 GameObject:
   m_ObjectHideFlags: 0
@@ -3688,6 +3709,7 @@ Transform:
   - {fileID: 1582538133}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   - {fileID: 518088519}
   - {fileID: 1198923451}
@@ -3698,6 +3720,8 @@ Transform:
   - {fileID: 1198923451}
   - {fileID: 1073411200}
 >>>>>>> parent of 4feaed84 (update level)
+=======
+>>>>>>> parent of b18abf56 (Background_Video:LVL1)
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1978394551 stripped
@@ -3868,6 +3892,7 @@ SceneRoots:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 52029679}
 =======
   - {fileID: 249414659}
@@ -3881,3 +3906,6 @@ SceneRoots:
 >>>>>>> parent of 123cf78d (update)
 =======
 >>>>>>> parent of 123cf78d (update)
+=======
+  - {fileID: 52029679}
+>>>>>>> parent of b18abf56 (Background_Video:LVL1)
