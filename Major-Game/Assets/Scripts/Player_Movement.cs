@@ -40,31 +40,23 @@ public class Player_Movement : MonoBehaviour
 
     private void updateplayerAnimation()
     {
-        MovementState animmovement;
-        if (dirx > 0f)
+        MovementState newMovementState = MovementState.idel;
+
+        if (dirx > 0f || dirx < 0f)
         {
-            animmovement = MovementState.running;
-            RL.flipX = false;
+            newMovementState = MovementState.running;
+            RL.flipX = dirx < 0f;
         }
-        else if (dirx < 0f)
+        else if (rb.velocity.y > 0.1f)
         {
-            animmovement = MovementState.running;
-            RL.flipX = true;
+            newMovementState = MovementState.jumping;
         }
-        else
+        else if (rb.velocity.y < -0.1f && IsGrounded())
         {
-            animmovement = MovementState.idel;
-        }
-        if (rb.velocity.y > .1f)
-        {
-            animmovement = MovementState.jumping;
-        }
-        else if(rb.velocity.y < -0.1f)
-        {
-            animmovement = MovementState.vanished;
+            newMovementState = MovementState.vanished;
         }
 
-        anim.SetInteger("animmovement", (int)animmovement);
+        anim.SetInteger("animmovement", (int)newMovementState);
     }
     private bool IsGrounded()
     {

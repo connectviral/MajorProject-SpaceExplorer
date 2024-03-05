@@ -7,11 +7,22 @@ public class Life : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
+    private float deathYPosition = -10f; 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-         anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
+
+    private void Update()
+    {
+        if (transform.position.y < deathYPosition)
+        {
+            Die();
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("trap"))
@@ -19,11 +30,13 @@ public class Life : MonoBehaviour
             Die();
         }
     }
+
     private void Die()
     {
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
-        
+
+        Invoke("RestartLevel", 2f);
     }
 
     private void RestartLevel()
