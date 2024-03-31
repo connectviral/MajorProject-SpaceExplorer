@@ -30,9 +30,11 @@ public class Life : MonoBehaviour
             Die();
         }
     }
+    [SerializeField] private AudioSource DeathSoundEffect;
 
     private void Die()
     {
+        DeathSoundEffect.Play();
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
 

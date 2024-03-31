@@ -9,11 +9,16 @@ public class Player_Movement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer RL;
     private float dirx = 0f;
+    
+    
     [SerializeField] private float Movespeed = 7f;
     [SerializeField] private float Jumpforce = 18f;
     [SerializeField] private LayerMask jumpableGround;
+    
     private enum MovementState { idel,running, jumping, vanished }
     private MovementState animmovement = MovementState.idel;
+
+    [SerializeField] private AudioSource JumpSoundEffect;
 
     // Start is called before the first frame update
     private void Start()
@@ -32,6 +37,7 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            JumpSoundEffect.Play();
             rb.velocity = new Vector2(rb.velocity.x, Jumpforce);
         }
 
