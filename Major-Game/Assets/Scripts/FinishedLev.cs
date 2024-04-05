@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,21 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class Finished : MonoBehaviour
 {
-    private AudioSource FinishedSoundEffect;
+    [SerializeField] private AudioSource FinishedSoundEffect;
 
-    private bool levelcomleted = false;
-
-    private void Start()
-    {
-        FinishedSoundEffect = GetComponent<AudioSource>();
-    }
+    private bool levelcompleted = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Player" && !levelcomleted)
+        if (collision.gameObject.CompareTag("Finish"))
         {
             FinishedSoundEffect.Play();
-            levelcomleted = true;
+            levelcompleted = true;
             Invoke("CompleteLevel", 2f);
         }
     }

@@ -1008,6 +1008,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &558374577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558374558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c455874388bb5bf4297c1d9f524666f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FinishedSoundEffect: {fileID: 1291664790}
 --- !u!1 &613313012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,9 +1801,10 @@ GameObject:
   - component: {fileID: 1291664788}
   - component: {fileID: 1291664791}
   - component: {fileID: 1291664790}
+  - component: {fileID: 1291664792}
   m_Layer: 0
   m_Name: Finished
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2007,6 +2021,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.29315206, y: 0.47399056}
   m_EdgeRadius: 0
+--- !u!114 &1291664792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291664787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c455874388bb5bf4297c1d9f524666f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FinishedSoundEffect: {fileID: 1291664790}
 --- !u!1001 &1309779098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2123,6 +2150,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3433032877048047004, guid: df254403676944e786502cd04e5bc31e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 558374574}
+    - targetCorrespondingSourceObject: {fileID: 3433032877048047004, guid: df254403676944e786502cd04e5bc31e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 558374577}
   m_SourcePrefab: {fileID: 100100000, guid: df254403676944e786502cd04e5bc31e, type: 3}
 --- !u!1001 &1363964697
 PrefabInstance:
