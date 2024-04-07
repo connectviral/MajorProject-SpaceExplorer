@@ -60,13 +60,9 @@ try:
                 elif handedness == "Left" and index_tip.y < middle_tip.y and thumb_tip.y < middle_tip.y and ring_tip.y < middle_tip.y and pinky_tip.y < middle_tip.y:
                     send_data('q')
 
-        cv2.imshow("Gesture Recognition", frame)
-        if cv2.waitKey(10) & 0xFF == ord('q'):
-            break
-
 except Exception as e:
     print(f"An error occurred: {e}")
 
 finally:
     server_socket.close()
-    cv2.destroyAllWindows()
+    cap.release()
