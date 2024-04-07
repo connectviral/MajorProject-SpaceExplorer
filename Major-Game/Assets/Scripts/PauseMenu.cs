@@ -7,28 +7,54 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject Pause_Menu;
 
+    private bool isPaused = false;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
 
     public void Pause()
     {
-        Pause_Menu.SetActive(true);
-        Time.timeScale = 0;
+        if (!isPaused)
+        {
+            Pause_Menu.SetActive(true);
+            Time.timeScale = 0;
+            isPaused = true;
+        }
     }
 
     public void Home()
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
+        isPaused = false;
     }
 
     public void Resume()
     {
-        Pause_Menu.SetActive(false);
-        Time.timeScale = 1;
+        if (isPaused)
+        {
+            Pause_Menu.SetActive(false);
+            Time.timeScale = 1;
+            isPaused = false;
+        }
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
+        isPaused = false;
     }
 }
