@@ -1,10 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Net.Sockets;
-using System.Threading.Tasks;
-using System.IO;
-using System;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -13,101 +9,32 @@ public class Player_Movement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer RL;
     private float dirx = 0f;
-
+    
+    
     [SerializeField] private float Movespeed = 7f;
     [SerializeField] private float Jumpforce = 18f;
     [SerializeField] private LayerMask jumpableGround;
-
-    private enum MovementState { idel, running, jumping, vanished }
+    
+    private enum MovementState { idel,running, jumping, vanished }
     private MovementState animmovement = MovementState.idel;
 
     [SerializeField] private AudioSource JumpSoundEffect;
 
-    private TcpClient client;
-    private NetworkStream stream;
-
+    // Start is called before the first frame update
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         RL = GetComponent<SpriteRenderer>();
-
-        ConnectToServer();
     }
-
-    private void ConnectToServer()
-    {
-        try
-        {
-            client = new TcpClient("localhost", 12345);
-            stream = client.GetStream();
-            ReadDataAsync();
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"Error connecting to server: {e.Message}");
-        }
-    }
-
-    private async void ReadDataAsync()
-    {
-        try
-        {
-            while (true)
-            {
-                byte[] data = new byte[256];
-                int bytesRead = await stream.ReadAsync(data, 0, data.Length);
-                if (bytesRead > 0)
-                {
-                    string command = System.Text.Encoding.ASCII.GetString(data, 0, bytesRead);
-                    HandleCommand(command);
-                }
-            }
-        }
-        catch (IOException e) when (e.InnerException is SocketException se && se.ErrorCode == 10053)
-        {
-            Debug.Log("Connection closed by host machine");
-            // Handle the connection closed event here
-        }
-        catch (Exception e)
-        {
-            Debug.Log("Error reading data: " + e.Message);
-        }
-    }
-
-    private void HandleCommand(string command)
-    {
-        switch (command)
-        {
-            case "right":
-                dirx = 1f;
-                break;
-            case "left":
-                dirx = -1f;
-                break;
-            case "space":
-                if (IsGrounded())
-                {
-                    JumpSoundEffect.Play();
-                    rb.velocity = new Vector2(rb.velocity.x, Jumpforce);
-                }
-                break;
-            case "q":
-                // Handle q key press
-                break;
-            default:
-                break;
-        }
-    }
-
+      
+    // Update is called once per frame
     private void Update()
     {
-        // Read keyboard inputs for movement
         dirx = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirx * Movespeed, rb.velocity.y);
 
-        // Check for jump input
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             JumpSoundEffect.Play();
@@ -120,6 +47,7 @@ public class Player_Movement : MonoBehaviour
     private void updateplayerAnimation()
     {
         MovementState newMovementState = MovementState.idel;
+
         if (dirx > 0f || dirx < 0f)
         {
             newMovementState = MovementState.running;
@@ -136,26 +64,8 @@ public class Player_Movement : MonoBehaviour
 
         anim.SetInteger("animmovement", (int)newMovementState);
     }
-
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
-    }
-
-    private void OnDestroy()
-    {
-        CloseConnection();
-    }
-
-    public void CloseConnection()
-    {
-        if (stream != null)
-        {
-            stream.Close();
-        }
-        if (client != null)
-        {
-            client.Close();
-        }
     }
 }
