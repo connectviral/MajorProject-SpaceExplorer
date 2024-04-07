@@ -2241,7 +2241,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 837121377}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: GoToLogin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 503207302}
   - component: {fileID: 503207301}
   m_Layer: 5
-  m_Name: Back
+  m_Name: startAsGuest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,8 +345,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 196, y: -147}
-  m_SizeDelta: {x: 130, y: 35}
+  m_AnchoredPosition: {x: 196, y: -135.5}
+  m_SizeDelta: {x: 130, y: 75.1121}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &503207301
 MonoBehaviour:
@@ -404,22 +404,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1559706879}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 294990381}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 503207301}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -523,7 +511,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Back
+  m_text: 'Start As Guest
 
 
 '
@@ -780,8 +768,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1, y: -148}
-  m_SizeDelta: {x: 130, y: 37}
+  m_AnchoredPosition: {x: -1, y: -132.22}
+  m_SizeDelta: {x: 130, y: 68.556}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &837121377
 MonoBehaviour:
@@ -841,7 +829,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 837121377}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: GoToLogin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1446,8 +1434,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -197, y: -148.5}
-  m_SizeDelta: {x: 130, y: 38}
+  m_AnchoredPosition: {x: -197, y: -132.72}
+  m_SizeDelta: {x: 130, y: 69.558}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1663559066
 MonoBehaviour:
@@ -1505,10 +1493,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 294990381}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1663559066}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: GoToRegister
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

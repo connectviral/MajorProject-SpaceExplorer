@@ -5,9 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
+    public void GoToLogin()
+    {
+        SceneManager.LoadScene(7);
+    }
+    public void GoToRegister()
+    {
+        SceneManager.LoadScene(8);
+    }
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
 
     public void Quit()
