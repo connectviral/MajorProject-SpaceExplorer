@@ -1,12 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Item_Pick_Up : MonoBehaviour
 {
-    private int bullets = 0;
-    [SerializeField] private Text bulletText;
+    private int hearts = 0;
+    [SerializeField] private Text heartText;
 
     [SerializeField] private AudioSource CollectSoundEffect;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,8 +15,8 @@ public class Item_Pick_Up : MonoBehaviour
         {
             CollectSoundEffect.Play();
             Destroy(collision.gameObject);
-            bullets++; 
-            bulletText.text = ("Bullets: "+ bullets); 
+            hearts++; 
+            heartText.text = ("❤️ "+ hearts); 
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.IO;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Player_Movement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer RL;
     private float dirx = 0f;
+    [SerializeField] private Transform respawnPosition;
+
 
     [SerializeField] private float Movespeed = 5f;
     [SerializeField] private float Jumpforce = 21f;
@@ -22,6 +25,9 @@ public class Player_Movement : MonoBehaviour
     private MovementState animmovement = MovementState.idel;
 
     [SerializeField] private AudioSource JumpSoundEffect;
+
+    private int lives = 0;
+
 
     private TcpClient client;
     private NetworkStream stream;
@@ -139,6 +145,27 @@ public class Player_Movement : MonoBehaviour
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
+
+    private void Respawn()
+    {
+        rb.velocity = Vector2.zero; // Reset the player's velocity
+        transform.position = respawnPosition.position; // Move the player to the respawn position
+    }
+
+    private void Die()
+    {
+        
+        if (lives <= 0)
+        {
+            
+            SceneManager.LoadScene(4);
+        }
+        else
+        {
+            Respawn();
+        }
+    }
+
 
     private void OnDestroy()
     {

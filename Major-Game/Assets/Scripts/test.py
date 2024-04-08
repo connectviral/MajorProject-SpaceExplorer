@@ -56,5 +56,7 @@ except Exception as e:
     print(f"An error occurred: {e}")
 
 finally:
+    cap.release()
     server_socket.close()
     cap.release()
+

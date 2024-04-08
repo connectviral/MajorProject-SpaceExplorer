@@ -24,8 +24,18 @@ public class FinishedLev : MonoBehaviour
     private void CompleteLevel()
     {
         UnlockNewLevel();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int nextLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        Debug.Log("Next Level Index: " + nextLevelIndex);
+        if (nextLevelIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextLevelIndex);
+        }
+        else
+        {
+            Debug.Log("No more levels available.");
+        }
     }
+
 
     private void UnlockNewLevel()
     {
