@@ -33,6 +33,6 @@ public class Registration : MonoBehaviour
     }
     public void VerifyInputs()
     {
-        submitButton.interactable = (nameField.text.Length >= 1 && passwordField.text.Length >= 1);    
+        submitButton.interactable = (nameField.text.Length >= 6 && passwordField.text.Length >= 6);    
     }
 }
