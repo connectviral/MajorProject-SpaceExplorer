@@ -24,8 +24,7 @@ public class Login : MonoBehaviour
         {
             Debug.Log("User logged in successfully");
             DBManager.username = nameField.text;
-            DBManager.levelReached = int.Parse(www.text.Split('\t')[1]);
-            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(3);
         }
     }
     public void VerifyInputs()

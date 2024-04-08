@@ -24,7 +24,7 @@ public class Registration : MonoBehaviour
         if (www.text == "0")
         {
             Debug.Log("User created successfully");
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
         else
         {
