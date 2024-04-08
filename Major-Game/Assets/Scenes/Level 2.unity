@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0401a6614170b8844876a4dc5ef34fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartText: {fileID: 0}
+  heartText: {fileID: 1046517674}
   CollectSoundEffect: {fileID: 558374573}
 --- !u!114 &558374569
 MonoBehaviour:
@@ -763,7 +763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87093b0fcbf7ade408dfb59a64bec3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeathSoundEffect: {fileID: 558374574}
 --- !u!82 &558374570
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1068,6 +1067,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FinishedSoundEffect: {fileID: 1291664790}
+--- !u!114 &558374578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558374558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d7bef083fd79842b76455e879b8eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathSoundEffect: {fileID: 558374570}
 --- !u!1 &613313012
 GameObject:
   m_ObjectHideFlags: 0
@@ -2497,6 +2509,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3433032877048047004, guid: df254403676944e786502cd04e5bc31e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 558374577}
+    - targetCorrespondingSourceObject: {fileID: 3433032877048047004, guid: df254403676944e786502cd04e5bc31e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 558374578}
   m_SourcePrefab: {fileID: 100100000, guid: df254403676944e786502cd04e5bc31e, type: 3}
 --- !u!1 &1373869451
 GameObject:
@@ -2950,7 +2965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 388, y: 159}
+  m_AnchoredPosition: {x: 398, y: 201.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1499779356

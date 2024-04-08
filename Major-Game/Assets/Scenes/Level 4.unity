@@ -489,7 +489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 390, y: 165}
+  m_AnchoredPosition: {x: 393, y: 191.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &406774390
@@ -740,6 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5339fce5be2374f925808cfd2bbbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 0}
   Movespeed: 7
   Jumpforce: 18
   jumpableGround:
@@ -836,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0401a6614170b8844876a4dc5ef34fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletText: {fileID: 1046517674}
+  heartText: {fileID: 0}
   CollectSoundEffect: {fileID: 558374573}
 --- !u!114 &558374569
 MonoBehaviour:

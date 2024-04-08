@@ -821,13 +821,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8878472812906257457, guid: 8a65b36a50cd3e9498b5351a95a8399d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 249414662}
   m_SourcePrefab: {fileID: 100100000, guid: 8a65b36a50cd3e9498b5351a95a8399d, type: 3}
 --- !u!4 &249414660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6771408372547006558, guid: 8a65b36a50cd3e9498b5351a95a8399d, type: 3}
   m_PrefabInstance: {fileID: 249414659}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &249414661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8878472812906257457, guid: 8a65b36a50cd3e9498b5351a95a8399d, type: 3}
+  m_PrefabInstance: {fileID: 249414659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &249414662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249414661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d7bef083fd79842b76455e879b8eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathSoundEffect: {fileID: 0}
 --- !u!1 &331860706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,6 +1258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5339fce5be2374f925808cfd2bbbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 0}
   Movespeed: 7
   Jumpforce: 18
   jumpableGround:
@@ -1333,7 +1355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0401a6614170b8844876a4dc5ef34fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletText: {fileID: 1046517674}
+  heartText: {fileID: 1046517674}
   CollectSoundEffect: {fileID: 558374573}
 --- !u!114 &558374569
 MonoBehaviour:
@@ -1347,7 +1369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87093b0fcbf7ade408dfb59a64bec3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeathSoundEffect: {fileID: 558374574}
 --- !u!82 &558374570
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1749,6 +1770,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FinishedSoundEffect: {fileID: 49415219}
+--- !u!114 &558374581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558374558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d7bef083fd79842b76455e879b8eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathSoundEffect: {fileID: 558374574}
 --- !u!1 &613313012
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,7 +2156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 388, y: 157}
+  m_AnchoredPosition: {x: 395, y: 197.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &907415135
@@ -2485,6 +2519,7 @@ GameObject:
   - component: {fileID: 1046517673}
   - component: {fileID: 1046517675}
   - component: {fileID: 1046517674}
+  - component: {fileID: 1046517676}
   m_Layer: 5
   m_Name: BulletCount
   m_TagString: Untagged
@@ -2544,7 +2579,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Points:0
+  m_Text: "\u2764\uFE0F : 0"
 --- !u!222 &1046517675
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2553,6 +2588,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046517672}
   m_CullTransparentMesh: 1
+--- !u!114 &1046517676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046517672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0401a6614170b8844876a4dc5ef34fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartText: {fileID: 1046517674}
+  CollectSoundEffect: {fileID: 0}
 --- !u!4 &1073411200 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6771408372547006558, guid: 8a65b36a50cd3e9498b5351a95a8399d, type: 3}
@@ -3002,6 +3051,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3433032877048047004, guid: df254403676944e786502cd04e5bc31e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 558374577}
+    - targetCorrespondingSourceObject: {fileID: 3433032877048047004, guid: df254403676944e786502cd04e5bc31e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 558374581}
   m_SourcePrefab: {fileID: 100100000, guid: df254403676944e786502cd04e5bc31e, type: 3}
 --- !u!1001 &1363964697
 PrefabInstance:
@@ -10066,6 +10118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1940993265}
+  - component: {fileID: 1940993266}
   m_Layer: 0
   m_Name: Traps
   m_TagString: Untagged
@@ -10097,6 +10150,19 @@ Transform:
   - {fileID: 1851001338}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1940993266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940993264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d7bef083fd79842b76455e879b8eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathSoundEffect: {fileID: 558374570}
 --- !u!1 &1978394551 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6185007968732440365, guid: 5a1fd7731d0ef0a4386e3dc4b0acc208, type: 3}
