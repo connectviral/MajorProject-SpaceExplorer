@@ -16,15 +16,15 @@ public class StartMenu : MonoBehaviour
     }
     public void GoToLogin()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(9);
     }
     public void GoToLoginPage()
     {
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene(7);
     }
     public void GoToRegister()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(8);
     }
     public void StartGame()
     {

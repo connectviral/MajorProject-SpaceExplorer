@@ -225,6 +225,7 @@ RectTransform:
   - {fileID: 837121376}
   - {fileID: 503207300}
   - {fileID: 1663559065}
+  - {fileID: 370882824}
   m_Father: {fileID: 1987365890}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -341,11 +342,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1311193909}
-  m_Father: {fileID: 1987365890}
+  m_Father: {fileID: 294990382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 814, y: 364}
+  m_AnchoredPosition: {x: 423.80005, y: 207}
   m_SizeDelta: {x: 75, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &370882825
@@ -360,6 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7ff2703b167a34cb4eee70ea61ab89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDisplay: {fileID: 0}
 --- !u!114 &370882826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,6 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7ff2703b167a34cb4eee70ea61ab89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDisplay: {fileID: 0}
 --- !u!114 &503207302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,6 +932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7ff2703b167a34cb4eee70ea61ab89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDisplay: {fileID: 0}
 --- !u!114 &837121378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,7 +979,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 837121377}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: GoToLoginPage
+        m_MethodName: GoToLogin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1733,6 +1737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7ff2703b167a34cb4eee70ea61ab89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDisplay: {fileID: 0}
 --- !u!114 &1663559067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2069,7 +2074,6 @@ RectTransform:
   - {fileID: 370501127}
   - {fileID: 1559706880}
   - {fileID: 294990382}
-  - {fileID: 370882824}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

@@ -882,6 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7ff2703b167a34cb4eee70ea61ab89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDisplay: {fileID: 0}
 --- !u!114 &503207302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2195,6 +2196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7ff2703b167a34cb4eee70ea61ab89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDisplay: {fileID: 0}
 --- !u!114 &837121378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2241,7 +2243,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 837121377}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: GoToLogin
+        m_MethodName: GoToLoginPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3345,6 +3347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7ff2703b167a34cb4eee70ea61ab89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDisplay: {fileID: 0}
 --- !u!114 &1663559067
 MonoBehaviour:
   m_ObjectHideFlags: 0
