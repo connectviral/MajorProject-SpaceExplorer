@@ -16,7 +16,6 @@ print("Server is listening...")
 conn, addr = server_socket.accept()
 print(f"Connection from {addr} established.")
 
-# Initialize the camera capture
 cap = cv2.VideoCapture(0)
 
 def send_data(data):
@@ -45,28 +44,19 @@ try:
                 ring_tip = landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP]
                 pinky_tip = landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
 
-                if handedness == "Right" and thumb_tip.x > index_tip.x and middle_tip.y > index_tip.y:
-                    send_data('right')
-                elif handedness == "Left" and thumb_tip.x < index_tip.x and middle_tip.y > index_tip.y:
-                    send_data('left')
-
-                if handedness == "Right" and index_tip.y > middle_tip.y and thumb_tip.y > middle_tip.y and ring_tip.y > middle_tip.y and pinky_tip.y > middle_tip.y:
-                    send_data('space')
-                elif handedness == "Left" and index_tip.y > middle_tip.y and thumb_tip.y > middle_tip.y and ring_tip.y > middle_tip.y and pinky_tip.y > middle_tip.y:
+                if handedness == "Left" and thumb_tip.y > middle_tip.y and index_tip.y > middle_tip.y and ring_tip.y > middle_tip.y and pinky_tip.y > middle_tip.y:
                     send_data('space')
 
-                if handedness == "Right" and index_tip.y < middle_tip.y and thumb_tip.y < middle_tip.y and ring_tip.y < middle_tip.y and pinky_tip.y < middle_tip.y:
-                    send_data('q')
-                elif handedness == "Left" and index_tip.y < middle_tip.y and thumb_tip.y < middle_tip.y and ring_tip.y < middle_tip.y and pinky_tip.y < middle_tip.y:
-                    send_data('q')
-
-        cv2.imshow("Gesture Recognition", frame)
-        if cv2.waitKey(10) & 0xFF == ord('q'):
-            break
-
+                if handedness == "Right":
+                    if thumb_tip.x > index_tip.x and middle_tip.y > index_tip.y and ring_tip.y > index_tip.y and pinky_tip.y > index_tip.y:
+                        pyautogui.press('right')
+                    elif thumb_tip.x < index_tip.x and middle_tip.y > index_tip.y and ring_tip.y > index_tip.y and pinky_tip.y > index_tip.y:
+                        pyautogui.press('left')
 except Exception as e:
     print(f"An error occurred: {e}")
 
 finally:
+    cap.release()
     server_socket.close()
-    cv2.destroyAllWindows()
+    cap.release()
+

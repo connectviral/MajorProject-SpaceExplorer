@@ -1,10 +1,11 @@
+// Finished.cs
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Finished : MonoBehaviour
+public class FinishedLev : MonoBehaviour
 {
     [SerializeField] private AudioSource FinishedSoundEffect;
 
@@ -12,7 +13,7 @@ public class Finished : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Finish"))
+        if (collision.gameObject.CompareTag("Finish") && !levelcompleted)
         {
             FinishedSoundEffect.Play();
             levelcompleted = true;
@@ -22,14 +23,24 @@ public class Finished : MonoBehaviour
 
     private void CompleteLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        UnlockNewLevel();
+        int nextLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        Debug.Log("Next Level Index: " + nextLevelIndex);
+        if (nextLevelIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextLevelIndex);
+        }
+        else
+        {
+            Debug.Log("No more levels available.");
+        }
     }
 
-    void UnlockNewLevel()
+
+    private void UnlockNewLevel()
     {
         if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
         {
-
             PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
             PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
             PlayerPrefs.Save();
