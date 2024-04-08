@@ -18,6 +18,11 @@ public class StartMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void scene0()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void Quit()
     {
         Application.Quit();

@@ -80,12 +80,6 @@ public class Player_Movement : MonoBehaviour
     {
         switch (command)
         {
-            case "right":
-                dirx = 1f;
-                break;
-            case "left":
-                dirx = -1f;
-                break;
             case "space":
                 if (IsGrounded())
                 {
@@ -93,13 +87,17 @@ public class Player_Movement : MonoBehaviour
                     rb.velocity = new Vector2(rb.velocity.x, Jumpforce);
                 }
                 break;
-            case "q":
-                // Handle q key press
+            case "right":
+                dirx = 1f;
+                break;
+            case "left":
+                dirx = -1f;
                 break;
             default:
                 break;
         }
     }
+
 
     private void Update()
     {
