@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d7bef083fd79842b76455e879b8eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeathSoundEffect: {fileID: 558374570}
+  DeathSoundEffect: {fileID: 558374574}
 --- !u!1 &613313012
 GameObject:
   m_ObjectHideFlags: 0
