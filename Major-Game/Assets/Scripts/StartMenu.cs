@@ -22,18 +22,10 @@ public class StartMenu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-    public void GoToRegister()
-    {
-        SceneManager.LoadScene(2);
-    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(4);
-    }
-
-    public void scene0()
-    {
-        SceneManager.LoadScene(0);
     }
 
     public void Quit()
