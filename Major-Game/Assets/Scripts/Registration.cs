@@ -8,6 +8,7 @@ public class Registration : MonoBehaviour
 {
     public InputField nameField;
     public InputField passwordField;
+    public InputField emailField;
      
     public Button submitButton;
     public void CallRegister()
@@ -19,6 +20,7 @@ public class Registration : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("name",nameField.text);
         form.AddField("password", passwordField.text);
+        form.AddField("email", emailField.text);
         WWW www = new WWW("http://localhost/sqlconnect/register.php", form);
         yield return www;
         if (www.text == "0")
