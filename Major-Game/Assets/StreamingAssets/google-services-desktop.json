@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "954053296155",
+    "project_id": "major-project-sem4",
+    "storage_bucket": "major-project-sem4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954053296155:android:0bfe55c373bc4f519ef8be",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.g2DProject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOhCk9zjEF95k7okkA6Q6tai4RYIUghsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

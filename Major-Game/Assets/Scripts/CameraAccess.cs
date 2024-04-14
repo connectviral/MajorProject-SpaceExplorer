@@ -1,31 +1,20 @@
 using UnityEngine;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
+using System.Net.Sockets;
+using System.IO;
 
 public class CameraAccess : MonoBehaviour
 {
-    // Import Windows API functions for accessing devices
-    [DllImport("avicap32.dll")]
-    public static extern IntPtr capCreateCaptureWindowA(string lpszWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, int nID);
-
-    [DllImport("user32.dll")]
-    public static extern IntPtr GetDC(IntPtr hwnd);
-
-    [DllImport("user32.dll")]
-    public static extern void ReleaseDC(IntPtr hwnd, IntPtr hdc);
-
-    [DllImport("avicap32.dll")]
-    public static extern bool capGetDriverDescription(int wDriverIndex, IntPtr lpszName, int cbName, IntPtr lpszVer, int cbVer);
     private WebCamTexture webcamTexture;
+    private Socket clientSocket;
+    private BinaryWriter writer;
 
     void Start()
     {
         StartCoroutine(RequestCameraPermission());
+        ConnectToServer();
     }
 
-    IEnumerator RequestCameraPermission()
+    System.Collections.IEnumerator RequestCameraPermission()
     {
         // Request permission to access the camera
         yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
@@ -43,9 +32,6 @@ public class CameraAccess : MonoBehaviour
                 // Use the first available camera
                 webcamTexture = new WebCamTexture(devices[0].name);
                 webcamTexture.Play();
-
-                // Display camera feed on a plane or object
-                GetComponent<Renderer>().material.mainTexture = webcamTexture;
             }
             else
             {
@@ -57,25 +43,64 @@ public class CameraAccess : MonoBehaviour
             Debug.Log("Camera permission denied");
         }
     }
-    List<string> EnumerateCameras()
+
+    void ConnectToServer()
     {
-        List<string> cameraNames = new List<string>();
-
-        for (int i = 0; i < 5; i++) // Assume maximum of 5 cameras
+        try
         {
-            IntPtr namePtr = Marshal.AllocHGlobal(100);
-            IntPtr versionPtr = Marshal.AllocHGlobal(100);
+            clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            clientSocket.Connect("127.0.0.1", 12345);
+            Debug.Log("Connected to Python server");
 
-            if (capGetDriverDescription(i, namePtr, 100, versionPtr, 100))
-            {
-                string name = Marshal.PtrToStringAnsi(namePtr);
-                cameraNames.Add(name);
-            }
-
-            Marshal.FreeHGlobal(namePtr);
-            Marshal.FreeHGlobal(versionPtr);
+            writer = new BinaryWriter(new NetworkStream(clientSocket));
         }
+        catch (SocketException e)
+        {
+            Debug.LogError($"Socket connection error: {e.Message}");
+        }
+    }
 
-        return cameraNames;
+    void Update()
+    {
+        // Send camera frames to Python script
+        if (webcamTexture != null && webcamTexture.isPlaying)
+        {
+            Texture2D tex = new Texture2D(webcamTexture.width, webcamTexture.height, TextureFormat.RGB24, false);
+            tex.SetPixels(webcamTexture.GetPixels());
+            tex.Apply();
+
+            byte[] bytes = tex.EncodeToJPG();
+            SendData(bytes);
+        }
+    }
+
+    void SendData(byte[] data)
+    {
+        try
+        {
+            if (writer != null)
+            {
+                // Send camera frame data to Python script
+                writer.Write(data.Length);
+                writer.Write(data);
+            }
+            else
+            {
+                Debug.LogError("Error sending data: Socket connection not established.");
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error sending data: {e.Message}");
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (clientSocket != null && clientSocket.Connected)
+        {
+            clientSocket.Shutdown(SocketShutdown.Both);
+            clientSocket.Close();
+        }
     }
 }
