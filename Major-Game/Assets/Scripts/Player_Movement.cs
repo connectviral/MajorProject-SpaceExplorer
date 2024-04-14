@@ -108,7 +108,14 @@ public class Player_Movement : MonoBehaviour
     private void Update()
     {
         // Read keyboard inputs for movement
-        dirx = Input.GetAxisRaw("Horizontal");
+        float keyboardInput = Input.GetAxisRaw("Horizontal");
+
+        // Read network commands for movement
+        float networkInput = dirx;
+
+        // Combine keyboard and network inputs for movement
+        dirx = Mathf.Clamp(keyboardInput + networkInput, -1f, 1f);
+
         rb.velocity = new Vector2(dirx * Movespeed, rb.velocity.y);
 
         // Check for jump input
@@ -120,6 +127,8 @@ public class Player_Movement : MonoBehaviour
 
         updateplayerAnimation();
     }
+
+
 
     private void updateplayerAnimation()
     {

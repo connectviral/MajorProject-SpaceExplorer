@@ -47,11 +47,14 @@ try:
                 if handedness == "Left" and thumb_tip.y > middle_tip.y and index_tip.y > middle_tip.y and ring_tip.y > middle_tip.y and pinky_tip.y > middle_tip.y:
                     send_data('space')
 
-                if handedness == "Right":
-                    if thumb_tip.x > index_tip.x and middle_tip.y > index_tip.y and ring_tip.y > index_tip.y and pinky_tip.y > index_tip.y:
-                        pyautogui.press('right')
-                    elif thumb_tip.x < index_tip.x and middle_tip.y > index_tip.y and ring_tip.y > index_tip.y and pinky_tip.y > index_tip.y:
-                        pyautogui.press('left')
+                                # Check if index finger is extended and tilted towards the left
+                if handedness == "Right" and index_tip.y < middle_tip.y and index_tip.x < middle_tip.x and thumb_tip.y < index_tip.y:
+                    pyautogui.press('left')
+
+                # Check if index finger is extended and tilted towards the right
+                if handedness == "Right" and index_tip.y < middle_tip.y and index_tip.x > middle_tip.x and thumb_tip.y < index_tip.y:
+                    pyautogui.press('right')
+
 except Exception as e:
     print(f"An error occurred: {e}")
 

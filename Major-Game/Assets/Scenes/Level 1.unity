@@ -1075,6 +1075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a069fd6d811136749ac4b85c2d554a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  webcamTexture: {fileID: 0}
 --- !u!81 &391911626
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1262,6 +1263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a069fd6d811136749ac4b85c2d554a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  webcamTexture: {fileID: 0}
 --- !u!4 &518088519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6771408372547006558, guid: 8a65b36a50cd3e9498b5351a95a8399d, type: 3}
@@ -2255,7 +2257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &886119357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2263,11 +2265,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886119356}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a069fd6d811136749ac4b85c2d554a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  webcamTexture: {fileID: 0}
 --- !u!4 &886119358
 Transform:
   m_ObjectHideFlags: 0
@@ -2473,6 +2476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a069fd6d811136749ac4b85c2d554a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  webcamTexture: {fileID: 0}
 --- !u!1 &954578189
 GameObject:
   m_ObjectHideFlags: 0
