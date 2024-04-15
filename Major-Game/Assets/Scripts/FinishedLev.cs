@@ -18,9 +18,9 @@ public class FinishedLev : MonoBehaviour
             FinishedSoundEffect.Play();
             levelcompleted = true;
             Invoke("CompleteLevel", 2f);
-        }
+        } 
     }
-
+    
     private void CompleteLevel()
     {
         UnlockNewLevel();

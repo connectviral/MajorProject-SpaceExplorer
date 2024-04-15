@@ -10,6 +10,10 @@ public class Life : MonoBehaviour
     private Animator anim;
     private float deathYPosition = -10f;
     public static int life = 2;
+    public int GetLife()
+    {
+        return life;
+    }
 
     private bool hasLifeDecremented = false;
 

@@ -17,6 +17,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private Transform respawnPosition;
 
 
+
     [SerializeField] private float Movespeed = 5f;
     [SerializeField] private float Jumpforce = 21f;
     [SerializeField] private LayerMask jumpableGround;
@@ -82,6 +83,8 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
+    private bool isMoving = false;
+
     private void HandleCommand(string command)
     {
         switch (command)
@@ -94,10 +97,16 @@ public class Player_Movement : MonoBehaviour
                 }
                 break;
             case "right":
+                isMoving = true;
                 dirx = 1f;
                 break;
             case "left":
+                isMoving = true;
                 dirx = -1f;
+                break;
+            case "stop":
+                isMoving = false;
+                dirx = 0f;
                 break;
             default:
                 break;
@@ -111,12 +120,21 @@ public class Player_Movement : MonoBehaviour
         float keyboardInput = Input.GetAxisRaw("Horizontal");
 
         // Read network commands for movement
-        float networkInput = dirx;
+        float networkInput = isMoving ? dirx : 0f;
 
         // Combine keyboard and network inputs for movement
         dirx = Mathf.Clamp(keyboardInput + networkInput, -1f, 1f);
 
-        rb.velocity = new Vector2(dirx * Movespeed, rb.velocity.y);
+        if (dirx != 0)
+        {
+            // Player is moving, update velocity
+            rb.velocity = new Vector2(dirx * Movespeed, rb.velocity.y);
+        }
+        else
+        {
+            // Player is not moving, stop the player
+            rb.velocity = new Vector2(0f, rb.velocity.y);
+        }
 
         // Check for jump input
         if (Input.GetButtonDown("Jump") && IsGrounded())
@@ -127,6 +145,10 @@ public class Player_Movement : MonoBehaviour
 
         updateplayerAnimation();
     }
+
+
+
+
 
 
 
@@ -170,6 +192,9 @@ public class Player_Movement : MonoBehaviour
             SceneManager.LoadScene(4);
         }
         else
+        {
+
+        }
         {
             Respawn();
         }
