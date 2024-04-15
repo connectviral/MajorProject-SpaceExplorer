@@ -489,7 +489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 402, y: 201.6}
+  m_AnchoredPosition: {x: 718, y: 299}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &406774390
@@ -1198,7 +1198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d7bef083fd79842b76455e879b8eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heartText: {fileID: 1046517674}
   DeathSoundEffect: {fileID: 558374574}
+  CollectSoundEffect: {fileID: 0}
 --- !u!1 &613313012
 GameObject:
   m_ObjectHideFlags: 0
