@@ -24,7 +24,7 @@ public class Login : MonoBehaviour
         {
             Debug.Log("User logged in successfully");
             DBManager.username = nameField.text;
-            UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
     }
     public void VerifyInputs()

@@ -9,7 +9,7 @@ public class Life : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private float deathYPosition = -10f;
-    public static int life = 2;
+    public static int life = 3;
     public int GetLife()
     {
         return life;
@@ -78,7 +78,8 @@ public class Life : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
+            life = 3;
         }
     }
 

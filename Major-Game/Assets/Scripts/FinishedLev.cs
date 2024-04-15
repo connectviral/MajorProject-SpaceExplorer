@@ -20,7 +20,6 @@ public class FinishedLev : MonoBehaviour
             Invoke("CompleteLevel", 2f);
         } 
     }
-    
     private void CompleteLevel()
     {
         UnlockNewLevel();
