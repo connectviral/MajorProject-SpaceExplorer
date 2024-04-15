@@ -1,12 +1,10 @@
 import cv2
 import mediapipe as mp
-import pyautogui
 import socket
 
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands()
 mp_drawing = mp.solutions.drawing_utils
-screen_width, screen_height = pyautogui.size()
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind(('localhost', 12345))
