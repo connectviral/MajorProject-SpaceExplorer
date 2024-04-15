@@ -1,76 +1,80 @@
 import cv2
 import mediapipe as mp
+import pyautogui
 import socket
-import numpy as np
 
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands()
 mp_drawing = mp.solutions.drawing_utils
+screen_width, screen_height = pyautogui.size()
 
-# Create a TCP/IP socket
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind(('localhost', 12345))
 server_socket.listen(1)
 print("Server is listening...")
 
-# Accept a single connection and make a file-like object out of it
-connection, address = server_socket.accept()
-print(f"Connection from {address} established.")
+conn, addr = server_socket.accept()
+print(f"Connection from {addr} established.")
 
-while True:
-    # Receive the frame size
-    size = int.from_bytes(connection.recv(4), byteorder='big')
+cap = cv2.VideoCapture(0)
 
-    # Receive the frame data
-    data = b''
-    while len(data) < size:
-        packet = connection.recv(size - len(data))
-        if not packet:
-            break
-        data += packet
+def send_data(data):
+    try:
+        conn.send(data.encode())
+    except ConnectionResetError:
+        print("Connection was reset by the client")
+        return False
+    return True
 
-    # Convert the received data into a numpy array
-    frame = np.frombuffer(data, dtype=np.uint8)
+try:
+    prev_gesture = 'stop'
+    while True:
+        ret, frame = cap.read()
+        frame = cv2.flip(frame, 1)
+        rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        results = hands.process(rgb_frame)
 
-    # Decode the frame
-    frame = cv2.imdecode(frame, cv2.IMREAD_COLOR)
+        if results.multi_hand_landmarks:
+            for landmarks in results.multi_hand_landmarks:
+                handedness = results.multi_handedness[results.multi_hand_landmarks.index(landmarks)].classification[0].label
+                mp_drawing.draw_landmarks(frame, landmarks, mp_hands.HAND_CONNECTIONS)
 
-    # Process the frame using MediaPipe Hands
-    rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    results = hands.process(rgb_frame)
+                thumb = landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
+                index = landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
+                middle = landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
+                ring = landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP]
+                pinky = landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
 
-    if results.multi_hand_landmarks:
-        for landmarks in results.multi_hand_landmarks:
-            handedness = results.multi_handedness[results.multi_hand_landmarks.index(landmarks)].classification[0].label
-            mp_drawing.draw_landmarks(frame, landmarks, mp_hands.HAND_CONNECTIONS)
+                # Right hand gestures
+                if handedness == "Right":
+                    # Right movement
+                    if thumb.x < index.x and thumb.x < middle.x and thumb.x < ring.x and thumb.x < pinky.x:
+                        send_data('left')
+                        prev_gesture = 'left'
+                    # Left movement
+                    elif thumb.x > index.x and thumb.x > middle.x and thumb.x > ring.x and thumb.x > pinky.x:
+                        send_data('right')
+                        prev_gesture = 'right'
 
-            thumb_tip = landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
-            index_tip = landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
-            middle_tip = landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
-            ring_tip = landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP]
-            pinky_tip = landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]
+                # Left hand gesture
+                if handedness == "Left":
+                    # Jump
+                    if thumb.x < index.x and thumb.x > pinky.x:
+                        send_data('space')
+                        prev_gesture = 'jump'
+                    # Idle
+                    else:
+                        send_data('stop')
+                        prev_gesture = 'stop'
+        else:
+            # If no hand gestures detected, stop the player
+            if prev_gesture != 'stop':
+                send_data('stop')
+                prev_gesture = 'stop'
 
-            if handedness == "Left" and thumb_tip.y > middle_tip.y and index_tip.y > middle_tip.y and ring_tip.y > middle_tip.y and pinky_tip.y > middle_tip.y:
-                command = 'space'
-                connection.send(command.encode())
+except Exception as e:
+    print(f"An error occurred: {e}")
 
-            # Check for right hand gestures
-            if handedness == "Right":
-                # Check for right gesture
-                if thumb_tip.y > index_tip.y and thumb_tip.y > middle_tip.y and thumb_tip.y > ring_tip.y and thumb_tip.y > pinky_tip.y:
-                    command = 'right'
-                    connection.send(command.encode())
-                # Check for left gesture
-                elif thumb_tip.y < index_tip.y and thumb_tip.y < middle_tip.y and thumb_tip.y < ring_tip.y and thumb_tip.y < pinky_tip.y:
-                    command = 'left'
-                    connection.send(command.encode())
-
-    # Display the frame
-    cv2.imshow('MediaPipe Hands', frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-# Clean up
-connection.close()
-server_socket.close()
-cv2.destroyAllWindows()
+finally:
+    cap.release()
+    server_socket.close()

@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+// Import necessary libraries
 using UnityEngine;
 using System.Net.Sockets;
 using System.Threading.Tasks;
@@ -9,14 +8,13 @@ using UnityEngine.SceneManagement;
 
 public class Player_Movement : MonoBehaviour
 {
+    // Declare variables
     private Rigidbody2D rb;
     private BoxCollider2D coll;
     private Animator anim;
     private SpriteRenderer RL;
     private float dirx = 0f;
     [SerializeField] private Transform respawnPosition;
-
-
 
     [SerializeField] private float Movespeed = 5f;
     [SerializeField] private float Jumpforce = 21f;
@@ -27,14 +25,12 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] private AudioSource JumpSoundEffect;
 
-    private int lives = 0;
-
-
     private TcpClient client;
     private NetworkStream stream;
 
     private void Start()
     {
+        // Get components and connect to server
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
@@ -45,6 +41,7 @@ public class Player_Movement : MonoBehaviour
 
     private void ConnectToServer()
     {
+        // Connect to server
         try
         {
             client = new TcpClient("localhost", 12345);
@@ -59,6 +56,7 @@ public class Player_Movement : MonoBehaviour
 
     private async void ReadDataAsync()
     {
+        // Read data from server
         try
         {
             while (true)
@@ -87,6 +85,7 @@ public class Player_Movement : MonoBehaviour
 
     private void HandleCommand(string command)
     {
+        // Handle commands from server
         switch (command)
         {
             case "space":
@@ -146,14 +145,9 @@ public class Player_Movement : MonoBehaviour
         updateplayerAnimation();
     }
 
-
-
-
-
-
-
     private void updateplayerAnimation()
     {
+        // Update player animation
         MovementState newMovementState = MovementState.idel;
         if (dirx > 0f || dirx < 0f)
         {
@@ -174,40 +168,31 @@ public class Player_Movement : MonoBehaviour
 
     private bool IsGrounded()
     {
+        // Check if player is grounded
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
 
     private void Respawn()
     {
+        // Respawn player
         rb.velocity = Vector2.zero; // Reset the player's velocity
         transform.position = respawnPosition.position; // Move the player to the respawn position
     }
 
     private void Die()
     {
-        
-        if (lives <= 0)
-        {
-            
-            SceneManager.LoadScene(4);
-        }
-        else
-        {
-
-        }
-        {
-            Respawn();
-        }
+        // Implement your logic for player death
     }
-
 
     private void OnDestroy()
     {
+        // Close connection
         CloseConnection();
     }
 
     public void CloseConnection()
     {
+        // Close connection
         if (stream != null)
         {
             stream.Close();
