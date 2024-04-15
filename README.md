@@ -10,8 +10,8 @@ This project is a Unity game that uses gesture recognition to control the player
 
 ## Requirements
 
-- Unity 20XX.XX or later
-- Python 3.XX with the following libraries:
+- Unity 2022.3.16f1 or later
+- Python 3. with the following libraries:
   - OpenCV (cv2)
   - Mediapipe (mediapipe)
 - Windows operating system (for the provided setup instructions)
@@ -21,7 +21,7 @@ This project is a Unity game that uses gesture recognition to control the player
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/unity-gesture-recognition.git
+   git clone https://github.com/connectviral/MajorProject-SpaceExplorer.git
    ```
 
 2. **Python Setup:**
