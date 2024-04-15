@@ -16,18 +16,24 @@ public class StartMenu : MonoBehaviour
     }
     public void GoToLogin()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void GoToLoginPage()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
-
+    public void GoToRegistration()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void LoggedInScreen()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void StartGame()
     {
         SceneManager.LoadScene(4);
     }
-
     public void Quit()
     {
         Application.Quit();
