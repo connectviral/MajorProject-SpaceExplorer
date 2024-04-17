@@ -39,17 +39,16 @@ This project is a Unity game that uses gesture recognition to control the player
 
 4. **Python Script:**
 
-   - Run the `test.py` Python script to start the server for receiving gesture commands from Unity.
+   - Run the `test.py` Python script to start the server for receiving gesture commands from Unity. // It will start automatically when level is loaded.
 
 5. **Run the Game:**
 
-   - Build and run the Unity game.
-   - Use gestures in front of the camera to control the player character's movement.
+   - Build and run the Unity game. (Currently it cannot be Build (you can build but the camera cannot be accessed.), but you can play it in the Unity Editor.)
+   - Use gestures in front of the camera, Also you can use the Keyboard input (WSAD + ARROWS + SPACE) to control the player character's movement.
 
 ## Usage
 
 - Use gestures to control the player character's movement.
-- Press the "Q" key to quit the game.
 
 ## Contributing
 
