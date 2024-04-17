@@ -23,6 +23,8 @@ This project is a Unity game that uses gesture recognition to control the player
    ```bash
    git clone https://github.com/connectviral/MajorProject-SpaceExplorer.git
    ```
+  # Important
+   Change the Branch to Update1 for the game.
 
 2. **Python Setup:**
 
